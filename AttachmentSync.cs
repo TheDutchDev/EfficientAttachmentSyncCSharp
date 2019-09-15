@@ -65,7 +65,7 @@ public static class AttachmentSync
         if( attachmentHash == 0 )
         {
             Console.WriteLine( $"Attachment hash couldn't be found for { attachment }" );
-            return;
+            return false;
         }
         
         return currentAttachments.IndexOf( attachmentHash ) != -1;

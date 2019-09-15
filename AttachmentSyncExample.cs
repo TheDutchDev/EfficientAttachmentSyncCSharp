@@ -8,6 +8,7 @@ public class AttachmentSyncExample : Script
         Console.WriteLine( "[SYNC] AttachmentSync Initialized!" );
     }
     
+    //REQUIRED
     [ServerEvent( Event.PlayerConnected )]
     public void OnPlayerConnect( Client client )
     {
@@ -16,15 +17,26 @@ public class AttachmentSyncExample : Script
         client.SetData( "Attachments", new List<uint>( ) );
     }
 
+    //REQUIRED
     [RemoteEvent( "staticAttachments.Add" )]
     private void OnStaticAttachmentAdd( Client client, string hash )
     {
         client.AddAttachment( Base36Extensions.FromBase36( hash ), false );
     }
-
+    
+    //REQUIRED
     [RemoteEvent( "staticAttachments.Remove" )]
     private void OnStaticAttachmentRemove( Client client, string hash )
     {
         client.AddAttachment( Base36Extensions.FromBase36( hash ), true );
+    }
+    
+    [Command( "addattachment" )]
+    private void CMD_AddAttachment( Client client ) 
+    {
+        if( client.HasAttachment( "char_creator_1" ) )
+            client.AddAttachment( "char_creator_1", true );
+        else 
+            client.AddAttachment( "char_creator_1", false );
     }
 }

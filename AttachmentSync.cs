@@ -43,6 +43,29 @@ public static class AttachmentSync
     }
 
     /// <summary>
+    /// Returns true if an entity has a certain attachment
+    /// </summary>
+    /// <param name="entity">The entity to check</param>
+    /// <param name="attachment">The attachment to look for</param>
+    /// <returns>True if attachment was found, false otherwise</returns>
+    public static bool HasAttachment( this Entity entity, dynamic attachment )
+    {
+        if( !entity.HasData( "Attachments" ) )
+            return false;
+
+        List<uint> currentAttachments = entity.GetData( "Attachments" );
+
+        uint attachmentHash = 0;
+
+        if( attachment.GetType( ) == typeof( string ) )
+            attachmentHash = NAPI.Util.GetHashKey( attachment );
+        else
+            attachmentHash = Convert.ToUInt32( attachment );
+
+        return currentAttachments.IndexOf( attachmentHash ) != -1;
+    }
+    
+    /// <summary>
     /// Serializes a list of attachments
     /// </summary>
     /// <param name="attachments">a list of attachments in uint type</param>

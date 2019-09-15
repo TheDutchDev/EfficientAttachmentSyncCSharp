@@ -62,6 +62,12 @@ public static class AttachmentSync
         else
             attachmentHash = Convert.ToUInt32( attachment );
 
+        if( attachmentHash == 0 )
+        {
+            Console.WriteLine( $"Attachment hash couldn't be found for { attachment }" );
+            return;
+        }
+        
         return currentAttachments.IndexOf( attachmentHash ) != -1;
     }
     

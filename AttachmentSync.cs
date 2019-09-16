@@ -72,6 +72,26 @@ public static class AttachmentSync
     }
     
     /// <summary>
+    /// Clears the entity's current attachments
+    /// </summary>
+    /// <param name="entity">The entity to clear the attachments of</param>
+    public static void ClearAttachments( this Entity entity )
+    {
+        if( !entity.HasData( "Attachments" ) )
+            return;
+
+        List<uint> currentAttachments = entity.GetData( "Attachments" );
+
+        if( currentAttachments.Count > 0 )
+        {
+            for( int i = currentAttachments.Count - 1; i >= 0; i-- )
+            {
+                entity.AddAttachment( currentAttachments[ i ], true );
+            }
+        }
+    }
+    
+    /// <summary>
     /// Serializes a list of attachments
     /// </summary>
     /// <param name="attachments">a list of attachments in uint type</param>

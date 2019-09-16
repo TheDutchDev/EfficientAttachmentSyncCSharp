@@ -34,7 +34,7 @@ public class AttachmentSyncExample : Script
     [Command( "addattachment" )]
     private void CMD_AddAttachment( Client client ) 
     {
-        // Make sure you've registered this attachment on the client-side, checkout rootcause's example in ragempdev's package to see how.
+        // Make sure you've registered this attachment on the client-side, check rootcause's example in ragempdev's package to see how.
         if( client.HasAttachment( "char_creator_1" ) )
             client.AddAttachment( "char_creator_1", true );
         else 

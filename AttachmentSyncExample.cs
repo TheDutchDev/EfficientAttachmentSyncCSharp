@@ -13,7 +13,7 @@ public class AttachmentSyncExample : Script
     public void OnPlayerConnect( Client client )
     {
         // reset data on connect
-        client.SetSharedData( "attachmentsData", "" );
+        client.ResetSharedData( "attachmentsData" );
         client.SetData( "Attachments", new List<uint>( ) );
     }
 

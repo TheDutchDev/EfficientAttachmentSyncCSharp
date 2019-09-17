@@ -89,6 +89,9 @@ public static class AttachmentSync
                 entity.AddAttachment( currentAttachments[ i ], true );
             }
         }
+
+        client.ResetSharedData( "attachmentsData" );
+        client.SetData( "Attachments", new List<uint>( ) );
     }
     
     /// <summary>

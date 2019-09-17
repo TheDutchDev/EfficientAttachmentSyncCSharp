@@ -90,8 +90,8 @@ public static class AttachmentSync
             }
         }
 
-        client.ResetSharedData( "attachmentsData" );
-        client.SetData( "Attachments", new List<uint>( ) );
+        entity.ResetSharedData( "attachmentsData" );
+        entity.SetData( "Attachments", new List<uint>( ) );
     }
     
     /// <summary>

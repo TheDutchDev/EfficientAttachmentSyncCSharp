@@ -1,6 +1,7 @@
 # Efficient Attachment Sync C#
 Server-Side C# Equivalent for the Efficient Attachment System made by ragempdev: https://rage.mp/files/file/144-efficient-attachment-sync/
 
+This code was tested and works on .NET Core 2.2.
 ### Server-side
 - Copy the AttachmentSync.cs file to your gamemode.
 - Make sure you implement the 3 events found in AttachmentSyncExample.cs, it won't work properly without those!
